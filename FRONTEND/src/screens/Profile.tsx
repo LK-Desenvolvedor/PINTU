@@ -1,22 +1,42 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text } from 'react-native';
+
+interface UserProfile {
+  name: string;
+  email: string;
+  
+}
 
 export default function Profile() {
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/Profiles/:id`);
+        if (response.ok) {
+          const data = await response.json();
+          setProfile(data);
+        } else {
+          console.log('Erro ao obter perfil:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Erro ao conectar ao servidor:', error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (!profile) {
+    return <Text>Carregando perfil...</Text>;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Profile</Text>
+    <View>
+      <Text>Perfil do Usuário</Text>
+      <Text>Nome: {profile.name}</Text>
+      <Text>Email: {profile.email}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});

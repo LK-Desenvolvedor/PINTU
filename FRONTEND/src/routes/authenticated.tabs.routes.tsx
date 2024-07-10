@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Feed from '../screens/Feed'; //feed
-import Amigos from '../screens/Amigos'; //amigos
-import Jogos from '../screens/Jogos'; //jogos
-import Livros from '../screens/Livros'; //livros
-import MakeLove from '../screens/MakeLove'; //make love
-import CrudScreen from '../screens/CrudScreen'; //crud genérico
+import Feed from '../screens/Feed';
+import Amigos from '../screens/Amigos';
+import Jogos from '../screens/Jogos';
+import Livros from '../screens/Livros';
+import MakeLove from '../screens/MakeLove';
+import CrudScreen from '../screens/CrudScreen';
+import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,6 +18,7 @@ const AuthenticatedTabs = () => {
       <Tab.Screen name="Jogos" component={Jogos} />
       <Tab.Screen name="Livros" component={Livros} />
       <Tab.Screen name="MakeLove" component={MakeLove} />
+      <Tab.Screen name="Profile" component={Profile}/>
       <Tab.Screen name="CrudScreen" component={CrudScreen} />
     </Tab.Navigator>
   );

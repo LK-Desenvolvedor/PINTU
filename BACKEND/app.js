@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const LivrosRoutes = require('./routes/LivrosRoutes');
+const userRoutes = require('./routes/userRoutes');
 const errorHandler = require('./utils/errorHandler');
 require('dotenv').config();
 
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authRoutes);
 app.use('/Livros', LivrosRoutes);
+app.use('/Profiles', userRoutes);
 app.use(errorHandler);
 
 const dbURI = process.env.DB_URI;
