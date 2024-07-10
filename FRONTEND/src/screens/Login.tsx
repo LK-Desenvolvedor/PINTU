@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { storeToken } from './auth'; // Importe as funções do serviço de autenticação
 import globalStyles from '../styles/styles';
 
 type RootStackParamList = {
@@ -31,6 +32,7 @@ export default function Login() {
       console.log('Dados recebidos:', data);
 
       if (response.ok) {
+        await storeToken(data.token); // Armazena o token após login bem-sucedido
         navigation.navigate('AuthenticatedTabs');
         Alert.alert('Login realizado com sucesso!', `Token: ${data.token}`);
       } else {
