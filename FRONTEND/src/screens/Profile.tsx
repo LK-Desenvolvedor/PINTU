@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { getToken } from './auth'; // Importe a função getToken do serviço de autenticação
+import { getToken } from '../services/auth';
 
 interface UserProfile {
   name: string;
@@ -22,6 +22,7 @@ export default function Profile() {
         const response = await fetch(`http://localhost:5000/profiles/:id`, {
           headers: {
             'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
           },
         });
 

@@ -7,11 +7,8 @@ const LivrosSchema = new mongoose.Schema({
   },
   description: {
     type: String
-  },
-  date: {
-    type: Date,
-    required: true
   }
+
 });
 
 const Livros = mongoose.model("Livros", LivrosSchema);

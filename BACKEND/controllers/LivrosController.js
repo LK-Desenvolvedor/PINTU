@@ -2,16 +2,13 @@ const Livros = require('../models/Livros');
 
 exports.createLivros = async (req, res) => {
   try {
-    const { title, description, date, location, organizer } = req.body;
+    const { title, description } = req.body;
     const newLivros = new Livros({
       title,
-      description,
-      date,
-      location,
-      organizer
+      description
     });
-    const Livros = await newLivros.save();
-    res.status(201).json(Livros);
+    const savedLivros = await newLivros.save(); // Renomeei para savedLivros para evitar conflito de nome
+    res.status(201).json(savedLivros);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -19,8 +16,8 @@ exports.createLivros = async (req, res) => {
 
 exports.getLivross = async (req, res) => {
   try {
-    const Livross = await Livros.find();
-    res.json(Livross);
+    const livross = await Livros.find(); // Renomeei para livross
+    res.json(livross);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
