@@ -7,7 +7,7 @@ exports.createLivros = async (req, res) => {
       title,
       description
     });
-    const savedLivros = await newLivros.save(); // Renomeei para savedLivros para evitar conflito de nome
+    const savedLivros = await newLivros.save(); 
     res.status(201).json(savedLivros);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -16,7 +16,7 @@ exports.createLivros = async (req, res) => {
 
 exports.getLivross = async (req, res) => {
   try {
-    const livross = await Livros.find(); // Renomeei para livross
+    const livross = await Livros.find(); 
     res.json(livross);
   } catch (error) {
     res.status(400).json({ message: error.message });

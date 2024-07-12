@@ -1,4 +1,3 @@
-// src/routes/stack.routes.tsx
 import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
@@ -6,8 +5,8 @@ import Login from '../screens/Login';
 import Cadastro from '../screens/Cadastro';
 import AuthTabs from './auth.tabs.routes';
 import AuthenticatedTabs from './authenticated.tabs.routes';
-import { getToken } from '../services/auth'; // Importe a função para obter o token
-import LoadingScreen from '../screens/LoadingScreen'; // Crie e importe uma tela de carregamento se necessário
+import { getToken } from '../services/auth'; 
+import LoadingScreen from '../screens/LoadingScreen'; 
 
 const Stack = createStackNavigator();
 

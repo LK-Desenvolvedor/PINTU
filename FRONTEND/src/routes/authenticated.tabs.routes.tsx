@@ -5,7 +5,6 @@ import Amigos from '../screens/Amigos';
 import Jogos from '../screens/Jogos';
 import Livros from '../screens/Livros';
 import MakeLove from '../screens/MakeLove';
-import CrudScreen from '../screens/CrudScreen';
 import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +18,6 @@ const AuthenticatedTabs = () => {
       <Tab.Screen name="Livros" component={Livros} />
       <Tab.Screen name="MakeLove" component={MakeLove} />
       <Tab.Screen name="Profile" component={Profile}/>
-      <Tab.Screen name="CrudScreen" component={CrudScreen} />
     </Tab.Navigator>
   );
 };
